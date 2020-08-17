@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.alibaba.arouter'
+//apply plugin: 'com.alibaba.arouter'
 
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
@@ -39,10 +39,10 @@ dependencies {
     //占位主工程android原生库
     compileOnly rootProject.depsLibs.appcompat
     //占位主工程arouter库
-    compileOnly(rootProject.depsLibs.arouterapi) {
-        exclude group: 'com.android.support'
-    }
-    annotationProcessor rootProject.depsLibs.aroutercompiler
+//    compileOnly(rootProject.depsLibs.arouterapi) {
+//        exclude group: 'com.android.support'
+//    }
+//    annotationProcessor rootProject.depsLibs.aroutercompiler
 
 
 

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.alibaba.arouter'
+//apply plugin: 'com.alibaba.arouter'
 
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
@@ -46,14 +46,14 @@ dependencies {
     implementation rootProject.depsLibs.rxandroid
     implementation rootProject.depsLibs.eventbus
 
-   //greendao类库依赖
+    //greendao类库依赖
     implementation rootProject.depsLibs.greendao
 
     //arouter库
-    implementation(rootProject.depsLibs.arouterapi) {
-        exclude group: 'com.android.support'
-    }
-    annotationProcessor rootProject.depsLibs.aroutercompiler
+//    implementation(rootProject.depsLibs.arouterapi) {
+//        exclude group: 'com.android.support'
+//    }
+//    annotationProcessor rootProject.depsLibs.aroutercompiler
 
     implementation project(path: ':lib_image_loader')
     implementation project(path: ':lib_common_ui')
