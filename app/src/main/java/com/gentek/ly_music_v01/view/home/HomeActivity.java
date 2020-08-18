@@ -14,7 +14,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.fastjson.JSON;
 import com.gentek.lib_audio.app.AudioHelper;
 import com.gentek.lib_audio.mediaplayer.model.SongBean;
@@ -26,7 +25,7 @@ import com.gentek.ly_music_v01.bean.SongListBean;
 import com.gentek.ly_music_v01.model.CHANNEL;
 import com.gentek.ly_music_v01.model.login.LoginEvent;
 import com.gentek.ly_music_v01.utils.UserManager;
-import com.gentek.ly_music_v01.view.home.adapter.HomePagerAdapter;
+import com.gentek.ly_music_v01.adapter.CommonPagerAdapter;
 import com.gentek.ly_music_v01.view.login.LoginActivity;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -46,13 +45,13 @@ import java.util.ArrayList;
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     // 指定首页要出现的卡片
-    private static final CHANNEL[] CHANNELS = new CHANNEL[]{CHANNEL.MY, CHANNEL.DISCORY, CHANNEL.FRIEND};
+    private static final CHANNEL[] CHANNELS = new CHANNEL[]{CHANNEL.DISCORY, CHANNEL.MY, CHANNEL.FRIEND};
 
     private DrawerLayout mDrawerLayout;
     private View mToggleView;
     private View mSearchView;
     private ViewPager mViewPager;
-    private HomePagerAdapter mAdapter;
+    private CommonPagerAdapter mAdapter;
 
     private View mDrawerQrcodeView;
     private View mDrawerShareView;
@@ -67,7 +66,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
         setContentView(R.layout.activity_main);
-
         initView();
         initData();
     }
@@ -105,7 +103,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mSearchView = findViewById(R.id.search_view);
 
         mViewPager = findViewById(R.id.view_pager);
-        mAdapter = new HomePagerAdapter(getSupportFragmentManager(), CHANNELS);
+        mAdapter = new CommonPagerAdapter(getSupportFragmentManager(), CHANNELS);
         mViewPager.setAdapter(mAdapter);
         initMagicIndicator();
 

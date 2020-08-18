@@ -5,7 +5,10 @@ import android.graphics.Bitmap;
 public class Utils {
 
     /**
-     * 毛玻璃模糊算法
+     * @param sentBitmap
+     * @param radius   高斯模糊的程度：从1到100取值。值越小越清晰(速度快)，越大越模糊(速度慢)，建议值10~20
+     * @param canReuseInBitmap
+     * @return
      */
     public static Bitmap doBlur(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {
 

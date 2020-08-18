@@ -15,10 +15,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import com.gentek.lib_network.listener.DisposeDataListener;
 import com.gentek.ly_music_v01.R;
+import com.gentek.ly_music_v01.adapter.CommonPagerAdapter;
 import com.gentek.ly_music_v01.api.RequestCenter;
+import com.gentek.ly_music_v01.model.CHANNEL;
 import com.gentek.ly_music_v01.model.user.User;
 
 /**
@@ -26,14 +29,12 @@ import com.gentek.ly_music_v01.model.user.User;
  */
 public class DiscoryFragment extends Fragment implements DisposeDataListener {
 
+    private static final CHANNEL[] DISCORY_CHANNELS = new CHANNEL[]{CHANNEL.HOT_SONG, CHANNEL.NEW_SONG};
+
     private Context mContext;
-    /*
-     *  UI
-     */
-    private RecyclerView mRecyclerView;
 
-
-    private Button btn;
+    private ViewPager mViewPager;
+    private CommonPagerAdapter mAdapter;
     public static Fragment newInstance() {
         DiscoryFragment fragment = new DiscoryFragment();
         return fragment;
@@ -52,16 +53,18 @@ public class DiscoryFragment extends Fragment implements DisposeDataListener {
                              @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_discory_layout, null);
 
-
+        mViewPager=rootView.findViewById(R.id.view_pager_discory);
+        mAdapter = new CommonPagerAdapter(getChildFragmentManager(), DISCORY_CHANNELS);
+        mViewPager.setAdapter(mAdapter);
 //        mRecyclerView = rootView.findViewById(R.id.recyclerview);
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        btn=rootView.findViewById(R.id.btn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RequestCenter.login( DiscoryFragment.this);
-            }
-        });
+//        btn=rootView.findViewById(R.id.btn);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                RequestCenter.login( DiscoryFragment.this);
+//            }
+//        });
         return rootView;
     }
 

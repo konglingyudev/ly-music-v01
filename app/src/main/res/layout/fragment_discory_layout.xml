@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/refresh_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
-    <Button
-        android:id="@+id/btn"
-        android:text="测试"
-        android:layout_marginTop="20dp"
+    android:layout_height="match_parent"
+    >
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvActionBar"
+        android:orientation="horizontal" >
 
-</RelativeLayout>
+        <RadioButton
+            android:id="@+id/radioHot"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="热歌榜"
+            android:textColor="@drawable/selector_tab" />
+
+        <RadioButton
+            android:id="@+id/radioNew"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="新歌榜"
+            android:textColor="@drawable/selector_tab" />
+    </RadioGroup>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager_discory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

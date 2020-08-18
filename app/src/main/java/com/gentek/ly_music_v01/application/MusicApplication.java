@@ -2,7 +2,6 @@ package com.gentek.ly_music_v01.application;
 
 import android.app.Application;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.gentek.lib_audio.app.AudioHelper;
 
 

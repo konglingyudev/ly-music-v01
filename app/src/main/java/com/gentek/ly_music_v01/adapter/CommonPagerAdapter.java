@@ -1,4 +1,4 @@
-package com.gentek.ly_music_v01.view.home.adapter;
+package com.gentek.ly_music_v01.adapter;
 
 
 import androidx.annotation.NonNull;
@@ -12,12 +12,12 @@ import com.gentek.ly_music_v01.view.friend.FriendFragment;
 import com.gentek.ly_music_v01.view.mine.MineFragment;
 
 
-public class HomePagerAdapter extends FragmentPagerAdapter {
+public class CommonPagerAdapter extends FragmentPagerAdapter {
 
     private CHANNEL[] mList;
 
-    public HomePagerAdapter(FragmentManager fm, CHANNEL[] datas) {
-        super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+    public CommonPagerAdapter(FragmentManager fm, CHANNEL[] datas) {
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         mList = datas;
     }
 
@@ -33,6 +33,11 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
                 return DiscoryFragment.newInstance();
             case CHANNEL.FRIEND_ID:
                 return FriendFragment.newInstance();
+            case CHANNEL.HOT_SONG_ID:
+                return MineFragment.newInstance();
+            case CHANNEL.NEW_SONG_ID:
+                return MineFragment.newInstance();
+
         }
         return null;
     }
